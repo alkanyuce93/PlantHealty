@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { useAppDispatch } from '../../store/hooks';
 import { nextStep } from '../../store/slices/onboardingSlice';
-import { Colors } from '../../constants/Colors';
+import { Colors, Fonts } from '../../constants/Colors';
 import { hp, wp } from '../../utils/dimensions';
 import Button from '../common/Button';
 import OnboardingImage from '../common/OnboardingImage';
@@ -101,14 +101,12 @@ const styles = StyleSheet.create({
     color: Colors.mainText,
     textAlign: 'left',
     marginBottom: hp(12),
-    fontWeight: '400',
-    fontFamily: 'Rubik',
+    fontFamily: Fonts.Rubik_400,
     lineHeight: wp(28),
     letterSpacing: 0.07,
   },
   boldText: {
-    fontWeight: '700',
-    fontFamily: 'Rubik',
+    fontFamily: Fonts.Rubik_700,
   },
   subtitle: {
     fontSize: wp(16),
@@ -116,8 +114,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     lineHeight: wp(23),
     paddingHorizontal: 0,
-    fontFamily: 'Rubik',
-    fontWeight: '400',
+    fontFamily: Fonts.Rubik_400,
     letterSpacing: 0.07,
   },
   footer: {
@@ -138,8 +135,7 @@ const styles = StyleSheet.create({
     lineHeight: wp(15),
     paddingHorizontal: wp(20),
     letterSpacing: 0.07,
-    fontFamily: 'Rubik',
-    fontWeight: '400',
+    fontFamily: Fonts.Rubik_400,
     width:wp(300),
   },
   linkText: {

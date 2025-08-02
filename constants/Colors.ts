@@ -18,6 +18,22 @@ export const Colors = {
   
   // Link Colors
   linkColor: 'rgba(89, 113, 101, 0.7)',
+  
+  // Pagination Colors
+  dotInactive: 'rgba(19, 35, 27, 0.25)',
+  dotActive: 'rgba(19, 35, 27, 1)',
+};
+
+
+// Design System Fonts
+export const Fonts = {
+  Rubik_300: 'Rubik_300Light',
+  Rubik_400: 'Rubik_400Regular',
+  Rubik_500: 'Rubik_500Medium',
+  Rubik_600: 'Rubik_600SemiBold',
+  Rubik_700: 'Rubik_700Bold',
+  Rubik_800: 'Rubik_800ExtraBold',
+  Rubik_900: 'Rubik_900Black',
 };
 
 export default {
