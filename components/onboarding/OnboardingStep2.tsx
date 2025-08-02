@@ -14,6 +14,7 @@ import { hp, wp } from '../../utils/dimensions';
 import Button from '../common/Button';
 import OnboardingImage from '../common/OnboardingImage';
 import Pagination from '../common/Pagination';
+import OnboardingHeader from '../common/OnboardingHeader';
 
 export default function OnboardingStep2() {
   const dispatch = useAppDispatch();
@@ -28,16 +29,13 @@ export default function OnboardingStep2() {
       style={styles.backgroundImage}
       resizeMode="cover"
     >
-      <View style={styles.header}>
-        <Text style={styles.title}>
-          Take a photo to <Text style={styles.underlineText}>identify</Text> the plant!
-        </Text>
-        <Image
-          source={require('../../assets/images/Brush.png')}
-          style={styles.brushImage}
-          resizeMode="contain"
-        />
-      </View>
+      <OnboardingHeader
+        title="Take a photo to identify the plant!"
+        underlineText="identify"
+        brushImage={true}
+        style={{ marginRight: wp(36) }}
+        brushShadow={false}
+      />
 
         <OnboardingImage
           imageNumber={2}
@@ -72,33 +70,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-  header: {
-    marginTop: hp(59),
-    marginLeft: wp(24),
-    marginRight: wp(36),
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-  },
-  title: {
-    fontSize: wp(28),
-    color: Colors.mainText,
-    textAlign: 'left',
-    marginBottom: hp(12),
-    fontFamily: Fonts.Rubik_500,
-    lineHeight: wp(28),
-    letterSpacing: -1,
-  },
-  underlineText: {
-    fontFamily: Fonts.Rubik_800,
-    letterSpacing: -1,
-  },
-  brushImage: {
-    width: wp(136),
-    height: hp(13),
-    position: 'absolute',
-    top: hp(30),
-    right: wp(2),
-  },
+
   imageContainer: {
     alignSelf: 'center',
     marginBottom: hp(24),

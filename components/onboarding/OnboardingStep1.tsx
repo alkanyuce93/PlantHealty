@@ -12,6 +12,7 @@ import { Colors, Fonts } from '../../constants/Colors';
 import { hp, wp } from '../../utils/dimensions';
 import Button from '../common/Button';
 import OnboardingImage from '../common/OnboardingImage';
+import OnboardingHeader from '../common/OnboardingHeader';
 
 export default function OnboardingStep1() {
   const dispatch = useAppDispatch();
@@ -34,14 +35,12 @@ export default function OnboardingStep1() {
       style={styles.backgroundImage}
       resizeMode="cover"
     >
-      <View style={styles.header}>
-        <Text style={styles.title}>
-          Welcome to <Text style={styles.boldText}>PlantApp</Text>
-        </Text>
-        <Text style={styles.subtitle}>
-          Identify more than 3000+ plants and 88% accuracy.
-        </Text>
-      </View>
+      <OnboardingHeader
+        title="Welcome to PlantApp"
+        subtitle="Identify more than 3000+ plants and 88% accuracy."
+        boldText="PlantApp"
+        brushShadow={false}
+      />
 
       <OnboardingImage
         imageNumber={1}
@@ -89,34 +88,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-  header: {
-    marginTop: hp(59),
-    marginLeft: wp(24),
-    marginRight: wp(51),
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-  },
-  title: {
-    fontSize: wp(28),
-    color: Colors.mainText,
-    textAlign: 'left',
-    marginBottom: hp(12),
-    fontFamily: Fonts.Rubik_400,
-    lineHeight: wp(28),
-    letterSpacing: 0.07,
-  },
-  boldText: {
-    fontFamily: Fonts.Rubik_700,
-  },
-  subtitle: {
-    fontSize: wp(16),
-    color: Colors.mainTextTransparent,
-    textAlign: 'left',
-    lineHeight: wp(23),
-    paddingHorizontal: 0,
-    fontFamily: Fonts.Rubik_400,
-    letterSpacing: 0.07,
-  },
+
   footer: {
     alignItems: 'center',
     paddingHorizontal: wp(20),

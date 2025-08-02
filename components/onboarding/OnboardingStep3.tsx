@@ -3,16 +3,17 @@ import {
   View,
   Text,
   StyleSheet,
-  Dimensions,
-  ScrollView,
   Image,
+  ImageBackground,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useAppDispatch } from '../../store/hooks';
 import { completeOnboarding } from '../../store/slices/onboardingSlice';
+import { Colors, Fonts } from '../../constants/Colors';
+import { hp, wp } from '../../utils/dimensions';
 import Button from '../common/Button';
-
-const { width, height } = Dimensions.get('window');
+import Pagination from '../common/Pagination';
+import OnboardingHeader from '../common/OnboardingHeader';
 
 export default function OnboardingStep3() {
   const dispatch = useAppDispatch();
@@ -24,315 +25,214 @@ export default function OnboardingStep3() {
   };
 
   return (
-    <View style={styles.container}>
-      <Image
-        source={require('../../assets/images/Background.png')}
-        style={styles.backgroundImage}
-        resizeMode="cover"
+    <View style={styles.backgroundImage}>
+      <OnboardingHeader
+        title="Get plant care guides"
+        boldText="care guides"
+        style={{ marginRight: wp(74) }}
+        brushImage={true}
+        brushShadow={true}
+        brushImageStyle={{
+          top: hp(30),
+          right: wp(2),
+          width: wp(160),
+          height: hp(18),
+        }}
       />
-      {/* Header */}
-      <View style={styles.header}>
-        <Text style={styles.title}>Get plant care guides</Text>
-      </View>
-
-      {/* Background Floating Icons */}
-      <View style={[styles.floatingIcon, styles.plantIcon]}>
-        <Text style={styles.iconText}>🌿</Text>
-      </View>
-      <View style={[styles.floatingIcon, styles.sunIcon]}>
-        <Text style={styles.iconText}>☀️</Text>
-      </View>
-
-      {/* Plant Detail Card */}
-      <View style={styles.cardContainer}>
-        <View style={styles.plantCard}>
-          {/* Plant Image */}
-          <View style={styles.plantImageContainer}>
-            <View style={styles.plantImage}>
-              <View style={styles.orchidStem} />
-              <View style={styles.orchidFlower1} />
-              <View style={styles.orchidFlower2} />
-              <View style={styles.orchidFlower3} />
-            </View>
-          </View>
-
-          {/* Plant Info */}
-          <View style={styles.plantInfo}>
-            <Text style={styles.category}>Flowering Plants</Text>
-            <Text style={styles.plantName}>Red Moth Orchids</Text>
+     
+              <View style={styles.phoneContainer}>
+          <Image
+            source={require('../../assets/images/Object.png')}
+            style={{
+              width: wp(411),
+              height: hp(325.4),
+              position: 'absolute',
+              transform: [{ rotate: '-73.6deg' }],
+              top:hp(109),
+              left:wp(-21),
+            }}
+            resizeMode="cover"
+          />
+          <Image
+            source={require('../../assets/images/Artwork.png')}
+            style={{
+              width: wp(335.38),
+              height: hp(370),
+              position:"absolute",
+              top:hp(-20),
+              right:wp(5),
+              zIndex:1000,
             
-            {/* Care Summary */}
-            <View style={styles.careSummary}>
-              <View style={styles.careItem}>
-                <Text style={styles.careIcon}>❤️</Text>
-                <Text style={styles.careText}>Medium</Text>
-              </View>
-              <View style={styles.careItem}>
-                <Text style={styles.careIcon}>☀️</Text>
-                <Text style={styles.careText}>Full Sun</Text>
-              </View>
-              <View style={styles.careItem}>
-                <Text style={styles.careIcon}>💧</Text>
-                <Text style={styles.careText}>3-5 days</Text>
-              </View>
-            </View>
-
-            {/* Plant Overview */}
-            <Text style={styles.sectionTitle}>Plant Overview</Text>
-            <Text style={styles.description}>
-              It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more.
-            </Text>
-
-            {/* Plant Details */}
-            <View style={styles.detailsContainer}>
-              <View style={styles.detailItem}>
-                <Text style={styles.detailIcon}>🌱</Text>
-                <View style={styles.detailTextContainer}>
-                  <Text style={styles.detailLabel}>Plant Type</Text>
-                  <Text style={styles.detailValue}>Perennial</Text>
-                </View>
-              </View>
-              <View style={styles.detailItem}>
-                <Text style={styles.detailIcon}>📏</Text>
-                <View style={styles.detailTextContainer}>
-                  <Text style={styles.detailLabel}>Mature Size</Text>
-                  <Text style={styles.detailValue}>15"</Text>
-                </View>
-              </View>
-            </View>
-
-            {/* Scroll Indicator */}
-            <View style={styles.scrollIndicator} />
-          </View>
+            }}
+            resizeMode="contain"
+          />
+          <Image
+            source={require('../../assets/images/Flat-iPhone.png')}
+            style={{
+              width: wp(261),
+              height: hp(540),
+              resizeMode: 'contain',
+            }}
+          />
         </View>
-      </View>
+       
+     
 
-      {/* Footer */}
+     
+
+     
       <View style={styles.footer}>
         <Button
           title="Continue"
           onPress={handleContinue}
-          backgroundColor="#28AF6E"
+          backgroundColor={Colors.primaryGreen}
           textColor="#FFFFFF"
           style={styles.button}
         />
         
-        {/* Pagination */}
-        <View style={styles.pagination}>
-          <View style={styles.dot} />
-          <View style={styles.dot} />
-          <View style={[styles.dot, styles.dotActive]} />
-        </View>
+        <Pagination totalSteps={3} currentStep={2} />
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: width * 0.05,
-    position: 'relative',
-  },
   backgroundImage: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
+    flex: 1,
     width: '100%',
     height: '100%',
   },
-  header: {
-    marginTop: height * 0.1,
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: width * 0.05,
-    color: '#333',
-    textAlign: 'center',
-    fontWeight: '600',
-  },
+
   floatingIcon: {
     position: 'absolute',
-    width: width * 0.1,
-    height: width * 0.1,
-    borderRadius: width * 0.05,
+    width: wp(40),
+    height: wp(40),
+    borderRadius: wp(20),
     justifyContent: 'center',
     alignItems: 'center',
     opacity: 0.6,
   },
   plantIcon: {
     backgroundColor: '#10B981',
-    top: height * 0.15,
-    left: width * 0.05,
+    top: hp(120),
+    left: wp(20),
   },
   sunIcon: {
     backgroundColor: '#F59E0B',
-    top: height * 0.12,
-    right: width * 0.05,
+    top: hp(100),
+    right: wp(20),
   },
   iconText: {
-    fontSize: width * 0.035,
+    fontSize: wp(16),
   },
-  cardContainer: {
+  phoneContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: height * 0.05,
+  
   },
-  plantCard: {
-    width: width * 0.9,
-    backgroundColor: '#FFFFFF',
-    borderRadius: width * 0.05,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 3.84,
-    elevation: 5,
-    overflow: 'hidden',
+  phoneMockup: {
+    width: wp(411),
+    height: hp(325.4),
+    position: 'relative',
   },
-  plantImageContainer: {
-    height: height * 0.25,
-    backgroundColor: '#F8FAFC',
-    justifyContent: 'center',
-    alignItems: 'center',
+  phoneContent: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    padding: wp(20),
+    transform: [{ rotate: '-73.6deg' }],
   },
   plantImage: {
-    alignItems: 'center',
-  },
-  orchidStem: {
-    width: width * 0.02,
-    height: height * 0.15,
-    backgroundColor: '#228B22',
-    borderRadius: width * 0.01,
-  },
-  orchidFlower1: {
-    position: 'absolute',
-    top: height * 0.02,
-    width: width * 0.08,
-    height: height * 0.06,
-    backgroundColor: '#FF6B6B',
-    borderRadius: width * 0.04,
-    transform: [{ rotate: '-15deg' }],
-  },
-  orchidFlower2: {
-    position: 'absolute',
-    top: height * 0.06,
-    left: width * 0.02,
-    width: width * 0.07,
-    height: height * 0.05,
-    backgroundColor: '#FF8E8E',
-    borderRadius: width * 0.035,
-    transform: [{ rotate: '10deg' }],
-  },
-  orchidFlower3: {
-    position: 'absolute',
-    top: height * 0.08,
-    right: width * 0.015,
-    width: width * 0.06,
-    height: height * 0.04,
-    backgroundColor: '#FF6B6B',
-    borderRadius: width * 0.03,
-    transform: [{ rotate: '5deg' }],
+    width: '100%',
+    height: hp(200),
+    marginBottom: hp(20),
   },
   plantInfo: {
-    padding: width * 0.05,
+    flex: 1,
   },
   category: {
-    fontSize: width * 0.025,
+    fontSize: wp(14),
     color: '#666',
-    marginBottom: height * 0.005,
+    marginBottom: hp(5),
+    fontFamily: Fonts.Rubik_400,
   },
   plantName: {
-    fontSize: width * 0.045,
+    fontSize: wp(20),
     fontWeight: 'bold',
     color: '#333',
-    marginBottom: height * 0.02,
+    marginBottom: hp(15),
+    fontFamily: Fonts.Rubik_700,
   },
   careSummary: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: height * 0.03,
+    marginBottom: hp(20),
   },
   careItem: {
     alignItems: 'center',
   },
   careIcon: {
-    fontSize: width * 0.04,
-    marginBottom: height * 0.005,
+    fontSize: wp(16),
+    marginBottom: hp(5),
   },
   careText: {
-    fontSize: width * 0.025,
+    fontSize: wp(12),
     color: '#666',
+    fontFamily: Fonts.Rubik_400,
   },
   sectionTitle: {
-    fontSize: width * 0.035,
+    fontSize: wp(16),
     fontWeight: 'bold',
     color: '#333',
-    marginBottom: height * 0.015,
+    marginBottom: hp(10),
+    fontFamily: Fonts.Rubik_600,
   },
   description: {
-    fontSize: width * 0.03,
+    fontSize: wp(14),
     color: '#666',
-    lineHeight: width * 0.04,
-    marginBottom: height * 0.03,
+    lineHeight: wp(20),
+    marginBottom: hp(20),
+    fontFamily: Fonts.Rubik_400,
   },
   detailsContainer: {
-    marginBottom: height * 0.02,
+    marginBottom: hp(15),
   },
   detailItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: height * 0.015,
+    marginBottom: hp(10),
   },
   detailIcon: {
-    fontSize: width * 0.035,
-    marginRight: width * 0.03,
+    fontSize: wp(16),
+    marginRight: wp(15),
   },
   detailTextContainer: {
     flex: 1,
   },
   detailLabel: {
-    fontSize: width * 0.025,
+    fontSize: wp(12),
     color: '#666',
+    fontFamily: Fonts.Rubik_400,
   },
   detailValue: {
-    fontSize: width * 0.03,
+    fontSize: wp(14),
     color: '#333',
     fontWeight: '500',
-  },
-  scrollIndicator: {
-    position: 'absolute',
-    right: width * 0.02,
-    top: height * 0.1,
-    width: width * 0.01,
-    height: height * 0.3,
-    backgroundColor: '#E5E7EB',
-    borderRadius: width * 0.005,
+    fontFamily: Fonts.Rubik_500,
   },
   footer: {
-    marginBottom: height * 0.05,
+    position: 'absolute',
+    bottom: hp(61),
+    left: 0,
+    right: 0,
+    alignItems: 'center',
+    paddingHorizontal: wp(20),
+    backgroundColor:"#fff"
   },
   button: {
-    marginBottom: height * 0.02,
-  },
-  pagination: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  dot: {
-    width: width * 0.02,
-    height: width * 0.02,
-    borderRadius: width * 0.01,
-    backgroundColor: '#DDD',
-    marginHorizontal: width * 0.01,
-  },
-  dotActive: {
-    backgroundColor: '#10B981',
+    marginBottom: hp(20),
   },
 }); 
