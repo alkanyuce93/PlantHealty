@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useAppDispatch } from '../../store/hooks';
-import { completeOnboarding } from '../../store/slices/onboardingSlice';
+import { nextStep } from '../../store/slices/onboardingSlice';
 import { Colors, Fonts } from '../../constants/Colors';
 import { hp, wp } from '../../utils/dimensions';
 import Button from '../common/Button';
@@ -20,8 +20,7 @@ export default function OnboardingStep3() {
   const router = useRouter();
 
   const handleContinue = () => {
-    dispatch(completeOnboarding());
-    router.replace('/(tabs)');
+    dispatch(nextStep());
   };
 
   return (
@@ -90,7 +89,7 @@ export default function OnboardingStep3() {
           style={styles.button}
         />
         
-        <Pagination totalSteps={3} currentStep={2} />
+        <Pagination totalSteps={4} currentStep={2} />
       </View>
     </View>
   );
@@ -225,7 +224,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     position: 'absolute',
-    bottom: hp(61),
+    bottom: hp(45),
     left: 0,
     right: 0,
     alignItems: 'center',

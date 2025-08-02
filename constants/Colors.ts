@@ -34,6 +34,7 @@ export const Fonts = {
   Rubik_700: 'Rubik_700Bold',
   Rubik_800: 'Rubik_800ExtraBold',
   Rubik_900: 'Rubik_900Black',
+  VisbyCF_800: 'Rubik_800ExtraBold', // Visby CF Extra Bold equivalent
 };
 
 export default {

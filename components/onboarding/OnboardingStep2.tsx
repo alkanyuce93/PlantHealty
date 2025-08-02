@@ -58,7 +58,7 @@ export default function OnboardingStep2() {
           style={styles.button}
         />
         
-        <Pagination totalSteps={3} currentStep={1} />
+        <Pagination totalSteps={4} currentStep={1} />
       </View>
     </ImageBackground>
   );
@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
     bottom: hp(45),
     left: 0,
     right: 0,
+    backgroundColor: '#fff',
   },
   button: {
     marginBottom: hp(20),
