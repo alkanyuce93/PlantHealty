@@ -1,11 +1,17 @@
 import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
-import { Pressable } from 'react-native';
+import { Pressable, View, StyleSheet } from 'react-native';
 
-import Colors from '@/constants/Colors';
+import Colors, { Colors as DesignColors } from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
+import { wp } from '@/utils/dimensions';
+import HomeSvgIcon from '@/components/common/HomeSvgIcon';
+import DiagnoseSvgIcon from '@/components/common/DiagnoseSvgIcon';
+import CameraSvgIcon from '@/components/common/CameraSvgIcon';
+import GardenSvgIcon from '@/components/common/GardenSvgIcon';
+import ProfileSvgIcon from '@/components/common/ProfileSvgIcon';
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 function TabBarIcon(props: {
@@ -20,39 +26,69 @@ export default function TabLayout() {
 
   return (
     <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
-      }}>
+    screenOptions={{
+      // Seçili sekmenin başlık rengini ayarlıyoruz
+      tabBarActiveTintColor: "rgba(40, 175, 110, 1)",
+      tabBarInactiveTintColor: '#999',
+      tabBarStyle: {
+        backgroundColor: '#FFFFFF',
+        borderTopWidth: 1,
+        borderTopColor: '#E5E5E5',
+        paddingBottom: 10,
+        paddingTop: 10,
+        height: wp(90),
+      },
+      // Disable the static render of the header on web
+      // to prevent a hydration error in React Navigation v6.
+      headerShown: useClientOnlyValue(false, true),
+    }}>
       <Tabs.Screen
         name="index"
-        options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
+        options={({ navigation }) => ({
+          title: 'Home',
+          tabBarIcon: ({ focused }) => (
+            <HomeSvgIcon isSelected={focused} size={28} />
           ),
+          headerShown: false,
+        })}
+      />
+      <Tabs.Screen
+        name="diagnose"
+        options={({ navigation }) => ({
+          title: 'Diagnose',
+          tabBarIcon: ({ focused }) => (
+            <DiagnoseSvgIcon isSelected={focused} size={28} />
+          ),
+          headerShown: false,
+        })}
+      />
+      <Tabs.Screen
+        name="camera"
+        options={{
+          title: '',
+          tabBarIcon: () => <CameraSvgIcon size={90} />,
+          headerShown: false,
         }}
       />
       <Tabs.Screen
-        name="two"
-        options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        }}
+        name="garden"
+        options={({ navigation }) => ({
+          title: 'My Garden',
+          tabBarIcon: ({ focused }) => (
+            <GardenSvgIcon isSelected={focused} size={28} />
+          ),
+          headerShown: false,
+        })}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={({ navigation }) => ({
+          title: 'Profile',
+          tabBarIcon: ({ focused }) => (
+            <ProfileSvgIcon isSelected={focused} size={28} />
+          ),
+          headerShown: false,
+        })}
       />
     </Tabs>
   );

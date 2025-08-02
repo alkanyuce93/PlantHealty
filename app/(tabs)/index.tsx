@@ -3,20 +3,20 @@ import { useAppSelector } from '../../store/hooks';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
+import { wp } from '@/utils/dimensions';
 
 export default function TabOneScreen() {
   const isOnboardingCompleted = useAppSelector((state) => state.onboarding.isCompleted);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>PlantApp</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      
-      <Text style={styles.subtitle}>
-        {isOnboardingCompleted ? 'Welcome to PlantApp!' : 'Onboarding completed!'}
-      </Text>
-      
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+      <View style={{
+        alignItems:"flex-start",
+        justifyContent:"flex-start",
+      }}>
+        <Text>Hi, plant lover!</Text>
+      </View>
+     
     </View>
   );
 }
@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: wp(24)
   },
   title: {
     fontSize: 20,
