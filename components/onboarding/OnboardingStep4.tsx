@@ -51,11 +51,11 @@ export default function OnboardingStep4() {
             <ImageBackground
                 source={require('../../assets/images/Image.png')}
                 style={styles.backgroundImage}
-                resizeMode="cover"
+                resizeMode="contain"
             >
                 {/* Close button */}
                 <TouchableOpacity style={styles.closeButton}>
-                    <Text style={styles.closeButtonText}>✕</Text>
+                    <Text style={styles.closeButtonText}>X</Text>
                 </TouchableOpacity>
 
                 {/* Central plant image with viewfinder */}
@@ -147,13 +147,19 @@ export default function OnboardingStep4() {
                     </View>
                     <View style={{
                         paddingHorizontal: wp(20),
+                        height:hp(52),
+                      
+                        marginTop:hp(13)
                     }}>
-                        <TouchableOpacity style={[styles.subscriptionOption, {
-                            backgroundColor: "#28AF6E",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            height: hp(52)
-                        }]}>
+                        <TouchableOpacity 
+                            style={[styles.subscriptionOption, {
+                                backgroundColor: "#28AF6E",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                height: hp(52)
+                            }]}
+                            onPress={handleContinue}
+                        >
                             <Text style={{
                                 fontSize: wp(15),
                                 color: "#fff",
@@ -168,12 +174,42 @@ export default function OnboardingStep4() {
                             textAlign: "center",
                             fontSize: wp(9),
                             fontFamily: Fonts.Rubik_300,
-                            lineHeight: wp(18),
-                            marginBottom: hp(20),
+                            lineHeight: wp(11),
+                            marginTop:hp(10),
+                            marginBottom:hp(5),
+                          
                             paddingHorizontal: wp(20),
                         }}>
                         After the 3-day free trial period you’ll be charged ₺274.99 per year unless you cancel before the trial expires. Yearly Subscription is Auto-Renewable
                         </Text>
+                    </View>
+                    <View style={{
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "center",
+                       
+                    }}>
+                        <TouchableOpacity>
+                            <Text style={styles.footerText}>
+                                Terms  {' '}
+                            </Text>
+                        </TouchableOpacity>
+                        <Text style={styles.footerText}>
+                        •  {' '}  
+                        </Text>
+                        <TouchableOpacity>
+                            <Text style={styles.footerText}>
+                        Privacy{' '}  
+                            </Text>
+                        </TouchableOpacity>
+                        <Text style={styles.footerText}>
+                        •  {' '}
+                        </Text>
+                        <TouchableOpacity>
+                            <Text style={styles.footerText}>
+                                Restore
+                            </Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
 
@@ -189,11 +225,11 @@ const styles = StyleSheet.create({
         flex: 1,
         width: wp(378),
         height: hp(571),
-        marginTop: hp(-21)
+        marginTop: hp(-40)
     },
     closeButton: {
         position: 'absolute',
-        top: hp(60),
+        top: hp(100),
         right: wp(20),
         width: wp(24),
         height: wp(24),
@@ -228,7 +264,7 @@ const styles = StyleSheet.create({
     },
     titleSection: {
         alignItems: 'flex-start',
-        marginTop: hp(-45),
+        marginTop: hp(-50),
         marginLeft: wp(24),
     },
     title: {
@@ -405,4 +441,11 @@ const styles = StyleSheet.create({
         color: '#666666',
         marginHorizontal: wp(8),
     },
+    footerText: {
+        color: "rgba(255, 255, 255, 0.5)",
+        textAlign: "center",
+        fontSize: wp(11),
+        fontFamily: Fonts.Rubik_400,
+        lineHeight: wp(18),
+    }
 }); 
