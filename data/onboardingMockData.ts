@@ -56,7 +56,7 @@ export const subscriptionPlansData: SubscriptionPlan[] = [
     id: 'yearly',
     title: '1 Year',
     price: '$529,99',
-    description: 'First 3 days free, then /year',
+    description: 'First 3 days free, then $599.99/year',
     isPopular: true,
     savePercentage: 'Save 50%',
   },

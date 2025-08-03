@@ -2,7 +2,6 @@ import React from 'react';
 import {
   View,
   StyleSheet,
-  ImageBackground,
 } from 'react-native';
 import { useAppDispatch } from '../../store/hooks';
 import { nextStep } from '../../store/slices/onboardingSlice';
@@ -30,17 +29,17 @@ export default function OnboardingStep2() {
         brushShadow={false}
       />
 
-        <OnboardingImage
-          imageNumber={2}
-          source={require('../../assets/images/Content.png')}
-                  width={600}
-        height={730}
-          customDimensions={true}
-          style={{
-            marginTop:hp(-20),
-          }}
-        />
-    
+      <OnboardingImage
+        imageNumber={2}
+        source={require('../../assets/images/Content.png')}
+        width={600}
+        height={710}
+        customDimensions={true}
+        style={{
+          marginTop: hp(-20),
+        }}
+      />
+
 
       <View style={styles.footer}>
         <Button
@@ -50,7 +49,7 @@ export default function OnboardingStep2() {
           textColor="#FFFFFF"
           style={styles.button}
         />
-        
+
         <Pagination totalSteps={3} currentStep={1} />
       </View>
     </View>
@@ -67,8 +66,8 @@ const styles = StyleSheet.create({
   imageContainer: {
     alignSelf: 'center',
     marginBottom: hp(24),
-    width: wp(390), 
-    backgroundColor:"blue"
+    width: wp(390),
+    backgroundColor: "blue"
   },
   footer: {
     position: 'absolute',
@@ -78,7 +77,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: wp(20),
     height: hp(145),
-   
+
   },
   button: {
     marginBottom: hp(20),

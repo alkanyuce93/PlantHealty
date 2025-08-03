@@ -1,11 +1,11 @@
 import React from 'react';
 import {
   View,
-  Text,
   StyleSheet,
   Image,
   ImageBackground,
 } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
 import { useAppDispatch } from '../../store/hooks';
 import { nextStep } from '../../store/slices/onboardingSlice';
@@ -38,33 +38,33 @@ export default function OnboardingStep3() {
           height: hp(18),
         }}
       />
-     
-             
-          <ImageBackground
-            source={require('../../assets/images/bg-overlay.png')}
-            style={{
-              width: "100%",
-              height: "100%",
-              marginTop:hp(-150),
-              position:"absolute",
-              top:hp(109),
-              left:wp(0),
-            
-            }}
-            resizeMode="contain"
-          >
-             <View style={styles.phoneContainer}>
-           <Image
+
+
+      <ImageBackground
+        source={require('../../assets/images/bg-overlay.png')}
+        style={{
+          width: "100%",
+          height: "100%",
+          marginTop: hp(-150),
+          position: "absolute",
+          top: hp(109),
+          left: wp(0),
+
+        }}
+        resizeMode="contain"
+      >
+        <View style={styles.phoneContainer}>
+          <Image
             source={require('../../assets/images/Artwork.png')}
             style={{
               width: wp(335.38),
               height: hp(370),
-              position:"absolute",
-              top:hp(120),
-              right:wp(5),
-             
-              zIndex:1000,
-            
+              position: "absolute",
+              top: hp(120),
+              right: wp(5),
+
+              zIndex: 1000,
+
             }}
             resizeMode="contain"
           />
@@ -74,32 +74,40 @@ export default function OnboardingStep3() {
               width: wp(261),
               height: hp(540),
               resizeMode: 'contain',
-              position:"absolute",
-              top:hp(228),
-             
+              position: "absolute",
+              top: hp(229),
+
             }}
           />
-         
+
         </View>
-        </ImageBackground>
-         
-       
-     
+      </ImageBackground>
 
-     
 
-     
-      <View style={styles.footer}>
-        <Button
-          title="Continue"
-          onPress={handleContinue}
-          backgroundColor={Colors.primaryGreen}
-          textColor="#FFFFFF"
-          style={styles.button}
-        />
-        
-        <Pagination totalSteps={3} currentStep={2} />
-      </View>
+
+
+
+
+
+      <LinearGradient
+        colors={['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 1)']}
+        style={styles.gradientOverlay}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 0, y: 1 }}
+        locations={[0, 1]}
+      >
+        <View style={styles.footer}>
+          <Button
+            title="Continue"
+            onPress={handleContinue}
+            backgroundColor={Colors.primaryGreen}
+            textColor="#FFFFFF"
+            style={styles.button}
+          />
+
+          <Pagination totalSteps={3} currentStep={2} />
+        </View>
+      </LinearGradient>
     </View>
   );
 }
@@ -137,7 +145,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
-  
+
   },
   phoneMockup: {
     width: wp(411),
@@ -231,6 +239,14 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     fontFamily: Fonts.Rubik_500,
   },
+  gradientOverlay: {
+    position: 'absolute',
+    bottom: hp(0),
+    left: 0,
+    right: 0,
+    height: hp(235),
+    width: wp(375),
+  },
   footer: {
     position: 'absolute',
     bottom: hp(0),
@@ -239,8 +255,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: wp(20),
     height: hp(145),
-    backgroundColor:"#fff"
-   
+    backgroundColor: "#fff"
   },
   button: {
     marginBottom: hp(20),
