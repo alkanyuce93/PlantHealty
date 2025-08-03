@@ -1,6 +1,7 @@
 import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import {  Tabs } from 'expo-router';
+import { View } from 'react-native';
 
 import { useColorScheme } from '@/components/useColorScheme';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
@@ -63,7 +64,11 @@ export default function TabLayout() {
         name="camera"
         options={{
           title: '',
-          tabBarIcon: () => <CameraSvgIcon size={90} />,
+          tabBarIcon: () => (
+            <View style={{ marginTop: -15 }}>
+              <CameraSvgIcon size={90} />
+            </View>
+          ),
           headerShown: false,
         }}
       />

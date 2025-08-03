@@ -31,7 +31,7 @@ const GetStartedSection: React.FC<GetStartedSectionProps> = ({
           >
             <Image source={{ uri: question.image_uri }} style={styles.cardImage} />
             <BlurView 
-              intensity={80} 
+              intensity={50} 
               tint="dark" 
               style={styles.cardOverlay}
             >
@@ -84,8 +84,8 @@ const styles = StyleSheet.create({
   card: {
     width: wp(240),
     height: hp(164),
-    marginRight: wp(10),
-    borderRadius: 12,
+    marginRight: wp(11),
+    borderRadius: wp(12),
     backgroundColor: 'white',
     shadowColor: '#000',
     shadowOffset: {
