@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     paddingVertical: wp(12),
     borderWidth: 0.2,
     borderColor: 'rgba(60, 60, 67, 0.25)',
-    width: wp(327),
+    width: wp(340),
     height: wp(44),
     alignSelf: 'center',
   },
