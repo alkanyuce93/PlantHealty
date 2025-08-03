@@ -11,6 +11,7 @@ import SearchBar from '@/components/common/SearchBar';
 import PremiumBanner from '@/components/common/PremiumBanner';
 import GetStartedSection from '@/components/common/GetStartedSection';
 import PlantCategoriesSection from '@/components/common/PlantCategoriesSection';
+import Colors from '@/constants/Colors';
 
 export default function TabOneScreen() {
   const dispatch = useAppDispatch();
@@ -69,6 +70,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: Colors.light.background,
   
   },
   scrollView: {

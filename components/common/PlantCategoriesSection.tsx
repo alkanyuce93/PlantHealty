@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from 'react-native';
-import { Colors } from '@/constants/Colors';
+import { Colors, Fonts } from '@/constants/Colors';
 import { wp, hp } from '@/utils/dimensions';
 import { Category } from '@/store/slices/categoriesSlice';
 
@@ -26,7 +26,6 @@ const PlantCategoriesSection: React.FC<PlantCategoriesSectionProps> = ({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Plant Categories</Text>
       <FlatList
         data={categories.slice(0, 8)} // Show only first 8 categories
         renderItem={renderCategoryItem}
@@ -48,8 +47,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: Colors.mainText,
-    marginBottom: 16,
+    color: Colors.dotActive,
+    marginBottom: hp(16),
     paddingHorizontal: wp(24),
   },
   listContent: {
@@ -57,37 +56,42 @@ const styles = StyleSheet.create({
   },
   row: {
     justifyContent: 'space-between',
-    marginBottom: 16,
+    marginBottom: hp(16),
+    gap: wp(12),
   },
   categoryCard: {
-    width: wp(160),
-    height: hp(160),
-    backgroundColor: 'white',
+    width: wp(158),
+    height: hp(152),
+    borderColor: 'rgba(41, 187, 137, 0.18)',
+    borderWidth: 0.5,
     borderRadius: 12,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
+    backgroundColor: 'rgba(244, 246, 246, 1)',
     overflow: 'hidden',
-    alignItems: 'center',
-    justifyContent: 'center',
+    position: 'relative',
   },
   categoryImage: {
-    width: '80%',
-    height: '70%',
+    position: 'absolute',
+    right: 0,
+    bottom: 0,
+    width: wp(165),
+    height: hp(160),
     resizeMode: 'contain',
-    marginBottom: 8,
   },
   categoryTitle: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: Colors.mainText,
-    textAlign: 'center',
-    paddingHorizontal: 8,
+    fontSize: hp(16),
+    fontFamily: Fonts.Rubik_500,
+    fontWeight: '500',
+    color: 'rgba(19, 35, 27, 1)',
+    textAlign: 'left',
+    paddingHorizontal: wp(16),
+    paddingTop: hp(16),
+    lineHeight: 21,
+    letterSpacing: -0.32,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    zIndex: 1,
+    maxWidth: wp(85),
   },
 });
 

@@ -40,13 +40,13 @@ export const Fonts = {
 export default {
   light: {
     text: '#000',
-    background: '#fff',
+    background: 'rgba(251, 250, 250, 1)',
     tint: tintColorLight,
     tabIconDefault: '#ccc',
     tabIconSelected: tintColorLight,
   },
   dark: {
-    text: '#fff',
+    text: 'rgba(251, 250, 250, 1)',
     background: '#000',
     tint: tintColorDark,
     tabIconDefault: '#ccc',
