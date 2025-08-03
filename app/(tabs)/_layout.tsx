@@ -1,9 +1,7 @@
 import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { Pressable, View, StyleSheet } from 'react-native';
+import {  Tabs } from 'expo-router';
 
-import Colors, { Colors as DesignColors } from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
 import { wp } from '@/utils/dimensions';

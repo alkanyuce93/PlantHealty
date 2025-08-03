@@ -51,7 +51,7 @@ export default function OnboardingStep2() {
           style={styles.button}
         />
         
-        <Pagination totalSteps={4} currentStep={1} />
+        <Pagination totalSteps={3} currentStep={1} />
       </View>
     </View>
   );
@@ -71,13 +71,14 @@ const styles = StyleSheet.create({
     backgroundColor:"blue"
   },
   footer: {
-    alignItems: 'center',
-    paddingHorizontal: wp(20),
     position: 'absolute',
-    bottom: hp(45),
+    bottom: hp(0),
     left: 0,
     right: 0,
-    backgroundColor: '#fff',
+    alignItems: 'center',
+    paddingHorizontal: wp(20),
+    height: hp(145),
+   
   },
   button: {
     marginBottom: hp(20),

@@ -90,11 +90,12 @@ const styles = StyleSheet.create({
 
   footer: {
     position: 'absolute',
-    bottom: hp(20),
+    bottom: hp(0),
     left: 0,
     right: 0,
     alignItems: 'center',
     paddingHorizontal: wp(20),
+    height: hp(145),
    
   },
   button: {
