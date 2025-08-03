@@ -39,27 +39,30 @@ export default function OnboardingStep3() {
         }}
       />
      
-              <View style={styles.phoneContainer}>
-          <Image
-            source={require('../../assets/images/Object.png')}
+             
+          <ImageBackground
+            source={require('../../assets/images/bg-overlay.png')}
             style={{
-              width: wp(411),
-              height: hp(325.4),
-              position: 'absolute',
-              transform: [{ rotate: '-73.6deg' }],
+              width: "100%",
+              height: "100%",
+              marginTop:hp(-150),
+              position:"absolute",
               top:hp(109),
-              left:wp(-21),
+              left:wp(0),
+            
             }}
-            resizeMode="cover"
-          />
-          <Image
+            resizeMode="contain"
+          >
+             <View style={styles.phoneContainer}>
+           <Image
             source={require('../../assets/images/Artwork.png')}
             style={{
               width: wp(335.38),
               height: hp(370),
               position:"absolute",
-              top:hp(-20),
+              top:hp(120),
               right:wp(5),
+             
               zIndex:1000,
             
             }}
@@ -71,9 +74,15 @@ export default function OnboardingStep3() {
               width: wp(261),
               height: hp(540),
               resizeMode: 'contain',
+              position:"absolute",
+              top:hp(228),
+             
             }}
           />
+         
         </View>
+        </ImageBackground>
+         
        
      
 
@@ -126,7 +135,7 @@ const styles = StyleSheet.create({
   },
   phoneContainer: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
   
   },
