@@ -1,0 +1,35 @@
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { Colors } from '@/constants/Colors';
+import { wp } from '@/utils/dimensions';
+
+interface PremiumBannerProps {
+  onPress?: () => void;
+}
+
+const PremiumBanner: React.FC<PremiumBannerProps> = ({ onPress }) => {
+  return (
+    <TouchableOpacity style={styles.container} onPress={onPress} activeOpacity={0.8}>
+      <Image
+      source={require('@/assets/images/Premium-Box.png')}
+      style={styles.image}
+      />
+    </TouchableOpacity>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    marginVertical: 16,
+   
+  },
+  image: {
+    width: wp(327),
+    height: wp(64),
+    alignSelf: 'center',
+  },
+  
+});
+
+export default PremiumBanner; 

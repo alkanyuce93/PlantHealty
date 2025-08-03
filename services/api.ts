@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// API base URL - gerçek API URL'inizi buraya ekleyin
-const API_BASE_URL = 'https://api.example.com';
+// API base URL
+const API_BASE_URL = 'https://dummy-api-jtg6bessta-ey.a.run.app';
 
 // Axios instance oluştur
 const api = axios.create({
@@ -40,6 +40,22 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+// Categories API endpoints
+export const categoriesAPI = {
+  // Kategorileri getir
+  getCategories: () => {
+    return api.get('/getCategories');
+  },
+};
+
+// Questions API endpoints
+export const questionsAPI = {
+  // Soruları getir
+  getQuestions: () => {
+    return api.get('/getQuestions');
+  },
+};
 
 // Plant API endpoints
 export const plantAPI = {

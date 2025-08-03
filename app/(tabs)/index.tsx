@@ -1,22 +1,65 @@
-import { StyleSheet } from 'react-native';
-import { useAppSelector } from '../../store/hooks';
+import React, { useEffect } from 'react';
+import { StyleSheet, ScrollView, Alert, ImageBackground } from 'react-native';
+import { useAppSelector, useAppDispatch } from '../../store/hooks';
+import { fetchCategories } from '../../store/slices/categoriesSlice';
+import { fetchQuestions } from '../../store/slices/questionsSlice';
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+import { View } from '@/components/Themed';
 import { wp } from '@/utils/dimensions';
+import HomeHeader from '@/components/common/HomeHeader';
+import SearchBar from '@/components/common/SearchBar';
+import PremiumBanner from '@/components/common/PremiumBanner';
+import GetStartedSection from '@/components/common/GetStartedSection';
+import PlantCategoriesSection from '@/components/common/PlantCategoriesSection';
 
 export default function TabOneScreen() {
-  const isOnboardingCompleted = useAppSelector((state) => state.onboarding.isCompleted);
+  const dispatch = useAppDispatch();
+  const { categories, loading: categoriesLoading } = useAppSelector((state) => state.categories);
+  const { questions, loading: questionsLoading } = useAppSelector((state) => state.questions);
+
+  useEffect(() => {
+    // Fetch data when component mounts
+    dispatch(fetchCategories());
+    dispatch(fetchQuestions());
+  }, [dispatch]);
+
+  const handleSearchPress = () => {
+    Alert.alert('Search', 'Search functionality will be implemented');
+  };
+
+  const handlePremiumPress = () => {
+    Alert.alert('Premium', 'Premium upgrade functionality will be implemented');
+  };
+
+  const handleQuestionPress = (question: any) => {
+    Alert.alert('Question', `Selected: ${question.title}`);
+  };
+
+  const handleCategoryPress = (category: any) => {
+    Alert.alert('Category', `Selected: ${category.title}`);
+  };
 
   return (
     <View style={styles.container}>
-      <View style={{
-        alignItems:"flex-start",
-        justifyContent:"flex-start",
-      }}>
-        <Text>Hi, plant lover!</Text>
-      </View>
-     
+      <ScrollView 
+        style={styles.scrollView}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.scrollContent}
+      >
+        <HomeHeader />
+        <SearchBar onPress={handleSearchPress} />
+        <PremiumBanner onPress={handlePremiumPress} />
+        
+        <GetStartedSection 
+          questions={questions}
+          onQuestionPress={handleQuestionPress}
+        />
+        
+        <PlantCategoriesSection 
+          categories={categories}
+          onCategoryPress={handleCategoryPress}
+        />
+      </ScrollView>
     </View>
   );
 }
@@ -26,20 +69,26 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: wp(24)
+  
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  scrollView: {
+    flex: 1,
   },
-  subtitle: {
-    fontSize: 16,
-    color: '#666',
-    marginTop: 10,
+  scrollContent: {
+    paddingBottom: wp(100), 
+    paddingTop: wp(24)
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  searchSectionContainer: {
+    width: wp(375), 
+    height: wp(175),
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: wp(24), 
+  },
+  searchImageBackground: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
