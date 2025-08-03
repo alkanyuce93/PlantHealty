@@ -40,6 +40,13 @@ export default function RootLayout() {
     Rubik_700Bold,
     Rubik_800ExtraBold,
     Rubik_900Black,
+    VisbyCF_300: require('../assets/fonts/VisbyCF_300.otf'),
+    VisbyCF_400: require('../assets/fonts/VisbyCF_400.otf'),
+    VisbyCF_500: require('../assets/fonts/VisbyCF_500.otf'),
+    VisbyCF_600: require('../assets/fonts/VisbyCF_600.otf'),
+    VisbyCF_700: require('../assets/fonts/VisbyCF_700.otf'),
+    VisbyCF_800: require('../assets/fonts/VisbyCF_800.otf'),
+    VisbyCF_900: require('../assets/fonts/VisbyCF_900.otf'),
     ...FontAwesome.font,
   });
 

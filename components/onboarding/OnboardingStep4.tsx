@@ -12,7 +12,7 @@ import {
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
 import { useAppDispatch } from '../../store/hooks';
-import { completeOnboarding } from '../../store/slices/onboardingSlice';
+import { saveOnboardingStatus } from '../../store/slices/onboardingSlice';
 import { Colors, Fonts } from '../../constants/Colors';
 import { hp, wp } from '../../utils/dimensions';
 import { featureCardsData, subscriptionPlansData } from '../../data/onboardingMockData';
@@ -22,8 +22,8 @@ export default function OnboardingStep4() {
     const router = useRouter();
     const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'yearly'>('yearly');
 
-    const handleContinue = () => {
-        dispatch(completeOnboarding());
+    const handleContinue = async () => {
+        await dispatch(saveOnboardingStatus(true));
         router.replace('/(tabs)');
     };
 
@@ -111,7 +111,13 @@ export default function OnboardingStep4() {
                                         <View style={styles.subscriptionText}>
                                             <Text style={styles.subscriptionTitle}>{plan.title}</Text>
                                             <Text style={styles.subscriptionPrice}>
-                                                {plan.id === 'yearly' ? plan.description : `${plan.price}/${plan.description}`}
+                                                {plan.id === 'yearly' ? plan.description : (
+                                                    <>
+                                                        $2.99/
+                                                        <Text style={styles.subscriptionPriceLight}>month</Text>
+                                                        <Text style={styles.subscriptionPriceRegular}>, auto renewable</Text>
+                                                    </>
+                                                )}
                                             </Text>
                                         </View>
                                         {plan.isPopular && plan.savePercentage && (
@@ -130,7 +136,13 @@ export default function OnboardingStep4() {
                                         <View style={styles.subscriptionText}>
                                             <Text style={styles.subscriptionTitle}>{plan.title}</Text>
                                             <Text style={styles.subscriptionPrice}>
-                                                {plan.id === 'yearly' ? plan.description : `${plan.price}/${plan.description}`}
+                                                {plan.id === 'yearly' ? plan.description : (
+                                                    <>
+                                                        $2.99/
+                                                        <Text style={styles.subscriptionPriceLight}>month</Text>
+                                                        <Text style={styles.subscriptionPriceRegular}>, auto renewable</Text>
+                                                    </>
+                                                )}
                                             </Text>
                                         </View>
                                         {plan.isPopular && plan.savePercentage && (
@@ -273,21 +285,24 @@ const styles = StyleSheet.create({
         marginBottom: hp(8),
         lineHeight: wp(30),
         letterSpacing: 0,
+
     },
     titleMain: {
         fontSize: wp(30),
-        color: '#FFFFFF',
-        fontFamily: Fonts.Rubik_800,
+        color: 'rgba(255, 255, 255, 1)',
+        fontFamily: Fonts.VisbyCF_800,
         lineHeight: wp(30),
         letterSpacing: 0,
+        fontWeight: '900',
     },
     titlePremium: {
         fontSize: wp(24),
-        color: '#FFFFFF',
-        fontFamily: Fonts.Rubik_700,
+        color: 'rgba(255, 255, 255, 1)',
+        fontFamily: Fonts.Rubik_400,
         lineHeight: wp(24),
         letterSpacing: 0,
         textTransform: 'capitalize',
+        fontWeight: '400',
     },
     subtitle: {
         fontSize: wp(17),
@@ -323,14 +338,14 @@ const styles = StyleSheet.create({
 
     featureTitle: {
         fontSize: wp(18),
-        color: '#FFFFFF',
+        color: 'rgba(255, 255, 255, 1)',
         fontFamily: Fonts.Rubik_700,
         textAlign: 'center',
         marginBottom: hp(4),
     },
     featureSubtitle: {
         fontSize: wp(14),
-        color: '#FFFFFF',
+        color: 'rgba(255, 255, 255, 0.7)',
         fontFamily: Fonts.Rubik_400,
         textAlign: 'center',
     },
@@ -377,6 +392,18 @@ const styles = StyleSheet.create({
         marginBottom: hp(2),
     },
     subscriptionPrice: {
+        fontSize: wp(14),
+        color: '#FFFFFF',
+        fontFamily: Fonts.Rubik_400,
+        opacity: 0.8,
+    },
+    subscriptionPriceLight: {
+        fontSize: wp(14),
+        color: '#FFFFFF',
+        fontFamily: Fonts.Rubik_300,
+        opacity: 0.8,
+    },
+    subscriptionPriceRegular: {
         fontSize: wp(14),
         color: '#FFFFFF',
         fontFamily: Fonts.Rubik_400,
