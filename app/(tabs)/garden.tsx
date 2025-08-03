@@ -1,28 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { Text, View } from '@/components/Themed';
+import ComingSoonScreen from '@/components/common/ComingSoonScreen';
 
 export default function GardenScreen() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>My Garden</Text>
-      <Text style={styles.subtitle}>Your plant collection and garden management will be here.</Text>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  subtitle: {
-    fontSize: 16,
-    color: '#666',
-    marginTop: 10,
-  },
-}); 
+  return <ComingSoonScreen title="My Garden" />;
+} 
