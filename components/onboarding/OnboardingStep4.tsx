@@ -51,12 +51,10 @@ export default function OnboardingStep4() {
                 style={styles.backgroundImage}
                 resizeMode="contain"
             >
-                {/* Close button */}
                 <TouchableOpacity style={styles.closeButton}>
                     <Text style={styles.closeButtonText}>X</Text>
                 </TouchableOpacity>
 
-                {/* Central plant image with viewfinder */}
                 <View style={styles.plantContainer}>
                     <Image
 
@@ -66,7 +64,6 @@ export default function OnboardingStep4() {
 
                 </View>
 
-                {/* Title section */}
                 <View style={styles.titleSection}>
                     <Text style={styles.title}>
                         <Text style={styles.titleMain}>PlantApp</Text>
@@ -75,7 +72,6 @@ export default function OnboardingStep4() {
                     <Text style={styles.subtitle}>Access All Features</Text>
                 </View>
 
-                {/* Feature cards */}
                 <View>
                     <FlatList
                         data={featureCardsData}
@@ -98,13 +94,13 @@ export default function OnboardingStep4() {
                                 onPress={() => setSelectedPlan(plan.id as 'monthly' | 'yearly')}
                             >
                                 {selectedPlan === plan.id ? (
-                          <LinearGradient
-                          colors={['rgba(16, 30, 23, 1)', 'rgba(40, 175, 110, 0.2)']}
-                          start={{ x: 0, y: 0.1 }}
-                          end={{ x: 0, y: 0.1 }}
-                          locations={[0.0, 0.9]}
-                          style={[styles.subscriptionOption, { borderWidth: 1.5, borderColor: "rgba(40, 175, 110, 1)", }]}
-                        >
+                                    <LinearGradient
+                                        colors={['rgba(40, 175, 110, 0.24)', 'rgba(16, 30, 23, 0)']}
+                                        start={{ x: 1, y: 0 }}
+                                        end={{ x: 0, y: 0 }}
+                                        locations={[0, 0.6851]}
+                                        style={[styles.subscriptionOption, { borderWidth: 1.5, borderColor: "rgba(40, 175, 110, 1)", }]}
+                                    >
                                         <View style={[styles.radioButton, styles.radioButtonSelected]}>
                                             <View style={styles.radioButtonInner} />
                                         </View>
@@ -157,11 +153,11 @@ export default function OnboardingStep4() {
                     </View>
                     <View style={{
                         paddingHorizontal: wp(20),
-                        height:hp(52),
-                      
-                        marginTop:hp(13)
+                        height: hp(52),
+
+                        marginTop: hp(13)
                     }}>
-                        <TouchableOpacity 
+                        <TouchableOpacity
                             style={[styles.subscriptionOption, {
                                 backgroundColor: "#28AF6E",
                                 alignItems: "center",
@@ -185,19 +181,19 @@ export default function OnboardingStep4() {
                             fontSize: wp(9),
                             fontFamily: Fonts.Rubik_300,
                             lineHeight: wp(11),
-                            marginTop:hp(10),
-                            marginBottom:hp(5),
-                          
+                            marginTop: hp(10),
+                            marginBottom: hp(5),
+
                             paddingHorizontal: wp(20),
                         }}>
-                        After the 3-day free trial period you’ll be charged ₺274.99 per year unless you cancel before the trial expires. Yearly Subscription is Auto-Renewable
+                            After the 3-day free trial period you’ll be charged ₺274.99 per year unless you cancel before the trial expires. Yearly Subscription is Auto-Renewable
                         </Text>
                     </View>
                     <View style={{
                         flexDirection: "row",
                         alignItems: "center",
                         justifyContent: "center",
-                       
+
                     }}>
                         <TouchableOpacity>
                             <Text style={styles.footerText}>
@@ -205,15 +201,15 @@ export default function OnboardingStep4() {
                             </Text>
                         </TouchableOpacity>
                         <Text style={styles.footerText}>
-                        •  {' '}  
+                            •  {' '}
                         </Text>
                         <TouchableOpacity>
                             <Text style={styles.footerText}>
-                        Privacy{' '}  
+                                Privacy{' '}
                             </Text>
                         </TouchableOpacity>
                         <Text style={styles.footerText}>
-                        •  {' '}
+                            •  {' '}
                         </Text>
                         <TouchableOpacity>
                             <Text style={styles.footerText}>
@@ -360,7 +356,12 @@ const styles = StyleSheet.create({
         borderRadius: wp(14),
         padding: wp(16),
         marginBottom: hp(16),
-        height: hp(60)
+        height: hp(60),
+        shadowColor: 'rgba(40, 175, 110, 0.3)',
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.8,
+        shadowRadius: wp(20),
+        elevation: 10,
     },
     radioButton: {
         width: wp(24),

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Colors } from '../../constants/Colors';
-import { wp } from '../../utils/dimensions';
+import { hp, wp } from '../../utils/dimensions';
 
 interface PaginationProps {
   totalSteps: number;
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
   },
   dot: {
     marginHorizontal: wp(4),
+    marginTop: hp(10),
   },
   dotInactive: {
     width: wp(6),

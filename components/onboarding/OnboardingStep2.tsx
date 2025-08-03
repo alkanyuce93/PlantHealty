@@ -33,8 +33,8 @@ export default function OnboardingStep2() {
         <OnboardingImage
           imageNumber={2}
           source={require('../../assets/images/Content.png')}
-                  width={wp(375)}
-        height={hp(680)}
+                  width={600}
+        height={730}
           customDimensions={true}
           style={{
             marginTop:hp(-20),
