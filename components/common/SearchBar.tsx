@@ -1,8 +1,7 @@
-// SearchBar.tsx
 import React from 'react';
 import { View, TextInput, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { Colors, Fonts } from '@/constants/Colors';
+import {  Fonts } from '@/constants/Colors';
 import { wp } from '@/utils/dimensions';
 
 interface SearchBarProps {
@@ -47,13 +46,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     resizeMode: 'cover',
     marginHorizontal: wp(-23),
-  
   },
   container: {
     width: '100%',
     marginVertical: wp(16),
     borderRadius: wp(12),
-  
   },
   searchBar: {
     flexDirection: 'row',

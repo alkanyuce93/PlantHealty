@@ -15,8 +15,6 @@ import { useAppDispatch } from '../../store/hooks';
 import { completeOnboarding } from '../../store/slices/onboardingSlice';
 import { Colors, Fonts } from '../../constants/Colors';
 import { hp, wp } from '../../utils/dimensions';
-import Button from '../common/Button';
-import Pagination from '../common/Pagination';
 import { featureCardsData, subscriptionPlansData } from '../../data/onboardingMockData';
 
 export default function OnboardingStep4() {
@@ -104,7 +102,7 @@ export default function OnboardingStep4() {
                           colors={['rgba(16, 30, 23, 1)', 'rgba(40, 175, 110, 0.2)']}
                           start={{ x: 0, y: 0.1 }}
                           end={{ x: 0, y: 0.1 }}
-                          locations={[0.0, 0.9]} // Gradyanın %70'inden sonra yeşil başlar
+                          locations={[0.0, 0.9]}
                           style={[styles.subscriptionOption, { borderWidth: 1.5, borderColor: "rgba(40, 175, 110, 1)", }]}
                         >
                                         <View style={[styles.radioButton, styles.radioButtonSelected]}>
@@ -273,7 +271,7 @@ const styles = StyleSheet.create({
         fontFamily: Fonts.VisbyCF_800,
         textAlign: 'left',
         marginBottom: hp(8),
-        lineHeight: wp(30), // 100% line height
+        lineHeight: wp(30),
         letterSpacing: 0,
     },
     titleMain: {

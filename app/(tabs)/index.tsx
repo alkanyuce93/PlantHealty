@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, ScrollView, Alert, ImageBackground } from 'react-native';
+import { StyleSheet, ScrollView, Alert, ImageBackground, ActivityIndicator } from 'react-native';
 import { useAppSelector, useAppDispatch } from '../../store/hooks';
 import { fetchCategories } from '../../store/slices/categoriesSlice';
 import { fetchQuestions } from '../../store/slices/questionsSlice';
@@ -19,7 +19,6 @@ export default function TabOneScreen() {
   const { questions, loading: questionsLoading } = useAppSelector((state) => state.questions);
 
   useEffect(() => {
-    // Fetch data when component mounts
     dispatch(fetchCategories());
     dispatch(fetchQuestions());
   }, [dispatch]);
@@ -51,15 +50,19 @@ export default function TabOneScreen() {
         <SearchBar onPress={handleSearchPress} />
         <PremiumBanner onPress={handlePremiumPress} />
         
+        {questions?.length &&  questionsLoading ? <ActivityIndicator /> : 
         <GetStartedSection 
           questions={questions}
           onQuestionPress={handleQuestionPress}
         />
+        }
+        {!categories?.length &&  categoriesLoading ? <ActivityIndicator /> : 
         
         <PlantCategoriesSection 
           categories={categories}
           onCategoryPress={handleCategoryPress}
         />
+        }
       </ScrollView>
     </View>
   );
@@ -71,7 +74,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: Colors.light.background,
-  
   },
   scrollView: {
     flex: 1,

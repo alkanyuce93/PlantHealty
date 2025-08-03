@@ -37,7 +37,7 @@ export default function OnboardingHeader({
       return (
         <Text style={titleStyle}>
           {parts[0]}
-          <Text style={styles.boldText}>{boldText}</Text>
+          <Text style={brushShadow ? styles.boldText : styles.boldTextNoShadow}>{boldText}</Text>
           {parts[1]}
         </Text>
       );
@@ -89,7 +89,7 @@ export default function OnboardingHeader({
       {renderTitle()}
       
       {subtitle && (
-        <Text style={styles.subtitle}>{subtitle}</Text>
+        <Text style={brushShadow ? styles.subtitle : styles.subtitleNoShadow}>{subtitle}</Text>
       )}
       
       {brushImage && (
@@ -130,6 +130,13 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 0, height: hp(4) },
     textShadowRadius: wp(4),
   },
+  boldTextNoShadow: {
+    fontFamily: Fonts.Rubik_700,
+    letterSpacing: wp(-1),
+    textShadowColor: 'transparent',
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 0,
+  },
   underlineText: {
     fontFamily: Fonts.Rubik_800,
     letterSpacing: wp(-1),
@@ -142,6 +149,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: 0,
     fontFamily: Fonts.Rubik_400,
     letterSpacing: 0.07,
+    textShadowColor: 'rgba(0, 0, 0, 0.25)',
+    textShadowOffset: { width: 0, height: hp(4) },
+    textShadowRadius: wp(4),
+  },
+  subtitleNoShadow: {
+    fontSize: wp(16),
+    color: Colors.mainTextTransparent,
+    textAlign: 'left',
+    lineHeight: wp(23),
+    paddingHorizontal: 0,
+    fontFamily: Fonts.Rubik_400,
+    letterSpacing: 0.07,
+    textShadowColor: 'transparent',
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 0,
   },
   brushImage: {
     width: wp(136),

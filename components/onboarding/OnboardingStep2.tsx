@@ -1,15 +1,12 @@
 import React from 'react';
 import {
   View,
-  Text,
   StyleSheet,
-  Image,
   ImageBackground,
-  Alert,
 } from 'react-native';
 import { useAppDispatch } from '../../store/hooks';
 import { nextStep } from '../../store/slices/onboardingSlice';
-import { Colors, Fonts } from '../../constants/Colors';
+import { Colors } from '../../constants/Colors';
 import { hp, wp } from '../../utils/dimensions';
 import Button from '../common/Button';
 import OnboardingImage from '../common/OnboardingImage';
@@ -24,11 +21,7 @@ export default function OnboardingStep2() {
   };
 
   return (
-    <ImageBackground
-      source={require('../../assets/images/Background.png')}
-      style={styles.backgroundImage}
-      resizeMode="cover"
-    >
+    <View style={styles.backgroundImage}>
       <OnboardingHeader
         title="Take a photo to identify the plant!"
         underlineText="identify"
@@ -40,8 +33,8 @@ export default function OnboardingStep2() {
         <OnboardingImage
           imageNumber={2}
           source={require('../../assets/images/Content.png')}
-          width={600} // Reference design width
-          height={730} // Reference design height
+                  width={600}
+        height={730}
           customDimensions={true}
           style={{
             marginTop:hp(-20),
@@ -60,7 +53,7 @@ export default function OnboardingStep2() {
         
         <Pagination totalSteps={4} currentStep={1} />
       </View>
-    </ImageBackground>
+    </View>
   );
 }
 

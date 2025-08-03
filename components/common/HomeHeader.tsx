@@ -15,9 +15,9 @@ const HomeHeader: React.FC = () => {
   const getWeatherIcon = () => {
     const hour = new Date().getHours();
     if (hour >= 6 && hour < 18) {
-      return 'partly-sunny'; // Day time
+      return 'partly-sunny';
     }
-    return 'moon'; // Night time
+    return 'moon';
   };
 
   return (
@@ -33,7 +33,6 @@ const HomeHeader: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
- 
     paddingTop: wp(16),
     paddingBottom: wp(8),
     paddingHorizontal: wp(24),
@@ -44,7 +43,7 @@ const styles = StyleSheet.create({
     fontWeight: 400,
     lineHeight: wp(16),
     letterSpacing: wp(0.07),
-    color: 'rgba(19, 35, 27, 1)', // Exact color from the image
+    color: 'rgba(19, 35, 27, 1)',
     marginBottom: wp(4),
   },
   titleContainer: {

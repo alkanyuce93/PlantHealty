@@ -95,7 +95,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
-   
   },
   cardImage: {
     width: wp(240),
@@ -108,7 +107,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    height: hp(66), // Approximately 40% of card height (164 * 0.4)
+    height: hp(66),
     backgroundColor: 'rgba(0, 0, 0, 0.2)',
     borderBottomLeftRadius: 12,
     borderBottomRightRadius: 12,

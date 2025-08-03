@@ -9,7 +9,7 @@ interface CameraSvgIconProps {
 const CameraSvgIcon: React.FC<CameraSvgIconProps> = ({ 
   size = 74 
 }) => {
-  const scale = size / 74; // Original SVG is 74x64
+  const scale = size / 74;
   
   return (
     <View style={[styles.cameraButton, { width: size, height: size * 0.86 }]}>

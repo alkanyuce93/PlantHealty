@@ -13,7 +13,7 @@ import CameraSvgIcon from '@/components/common/CameraSvgIcon';
 import GardenSvgIcon from '@/components/common/GardenSvgIcon';
 import ProfileSvgIcon from '@/components/common/ProfileSvgIcon';
 
-// You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
+
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
   color: string;
@@ -27,7 +27,7 @@ export default function TabLayout() {
   return (
     <Tabs
     screenOptions={{
-      // Seçili sekmenin başlık rengini ayarlıyoruz
+      
       tabBarActiveTintColor: "rgba(40, 175, 110, 1)",
       tabBarInactiveTintColor: '#999',
       tabBarStyle: {
@@ -38,8 +38,7 @@ export default function TabLayout() {
         paddingTop: 10,
         height: wp(90),
       },
-      // Disable the static render of the header on web
-      // to prevent a hydration error in React Navigation v6.
+      
       headerShown: useClientOnlyValue(false, true),
     }}>
       <Tabs.Screen

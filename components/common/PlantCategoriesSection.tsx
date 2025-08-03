@@ -27,7 +27,7 @@ const PlantCategoriesSection: React.FC<PlantCategoriesSectionProps> = ({
   return (
     <View style={styles.container}>
       <FlatList
-        data={categories.slice(0, 8)} // Show only first 8 categories
+        data={categories.slice(0, 8)}
         renderItem={renderCategoryItem}
         keyExtractor={(item) => item.id.toString()}
         numColumns={2}

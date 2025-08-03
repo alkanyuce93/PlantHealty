@@ -1,8 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { Colors } from '@/constants/Colors';
-import { wp } from '@/utils/dimensions';
+import {  StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { hp, wp } from '@/utils/dimensions';
 
 interface PremiumBannerProps {
   onPress?: () => void;
@@ -21,15 +19,13 @@ const PremiumBanner: React.FC<PremiumBannerProps> = ({ onPress }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 16,
-   
+    marginVertical: hp(16),
   },
   image: {
     width: wp(327),
     height: wp(64),
     alignSelf: 'center',
   },
-  
 });
 
 export default PremiumBanner; 

@@ -59,8 +59,8 @@ export default function Button({
 
 const styles = StyleSheet.create({
   button: {
-    width: screenWidth * (327 / 375), // 375 ekran genişliğinde 327 olacak
-    height: screenWidth * (327 / 375) * (56 / 327), // 327:56 oranı korunuyor
+    width: screenWidth * (327 / 375),
+    height: screenWidth * (327 / 375) * (56 / 327),
     borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',

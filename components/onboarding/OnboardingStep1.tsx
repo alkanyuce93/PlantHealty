@@ -58,7 +58,6 @@ export default function OnboardingStep1() {
           textColor="#FFFFFF"
           style={styles.button}
         />
- 
         <Text style={styles.legalText}>
           By tapping next, you are agreeing to PlantID{' '}
           <Text style={styles.linkText} onPress={handleTermsPress}>
@@ -90,12 +89,13 @@ const styles = StyleSheet.create({
   },
 
   footer: {
-    alignItems: 'center',
-    paddingHorizontal: wp(20),
     position: 'absolute',
-    bottom: hp(45),
+    bottom: hp(20),
     left: 0,
     right: 0,
+    alignItems: 'center',
+    paddingHorizontal: wp(20),
+   
   },
   button: {
     marginBottom: hp(20),
