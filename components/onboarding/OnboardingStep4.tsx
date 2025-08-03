@@ -94,13 +94,17 @@ export default function OnboardingStep4() {
                                 onPress={() => setSelectedPlan(plan.id as 'monthly' | 'yearly')}
                             >
                                 {selectedPlan === plan.id ? (
-                                    <LinearGradient
-                                        colors={['rgba(40, 175, 110, 0.24)', 'rgba(16, 30, 23, 0)']}
-                                        start={{ x: 1, y: 0 }}
-                                        end={{ x: 0, y: 0 }}
-                                        locations={[0, 0.6851]}
-                                        style={[styles.subscriptionOption, { borderWidth: 1.5, borderColor: "rgba(40, 175, 110, 1)", }]}
-                                    >
+                                <LinearGradient
+                                colors={[
+                                  'rgba(16, 30, 23, 1)', 
+                                  'rgba(16, 30, 23, 0.5)', 
+                                  'rgba(40, 175, 110, 0.0)', 
+                                ]}
+                                start={{ x: 0, y: 0 }} 
+                                end={{ x: 1, y: 1 }}
+                                locations={[0, 1, 1]} 
+                                style={[styles.subscriptionOption, { borderWidth: 1.5, borderColor: "rgba(40, 175, 110, 1)" }]}
+                              >
                                         <View style={[styles.radioButton, styles.radioButtonSelected]}>
                                             <View style={styles.radioButtonInner} />
                                         </View>
@@ -474,4 +478,4 @@ const styles = StyleSheet.create({
         fontFamily: Fonts.Rubik_400,
         lineHeight: wp(18),
     }
-}); 
+});
