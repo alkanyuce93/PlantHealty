@@ -11,16 +11,16 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
-import { useAppDispatch } from '../../store/hooks';
-import { saveOnboardingStatus } from '../../store/slices/onboardingSlice';
-import { Colors, Fonts } from '../../constants/Colors';
-import { hp, wp } from '../../utils/dimensions';
-import { featureCardsData, subscriptionPlansData } from '../../data/onboardingMockData';
+import { useAppDispatch, saveOnboardingStatus } from '../../store';
+import { Colors, Fonts } from '../../constants';
+import { featureCardsData, subscriptionPlansData } from '../../data';
+import { SubscriptionPlan } from '../../enums';
+import { hp, wp } from '../../utils';
 
 export default function OnboardingStep4() {
     const dispatch = useAppDispatch();
     const router = useRouter();
-    const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'yearly'>('yearly');
+    const [selectedPlan, setSelectedPlan] = useState<SubscriptionPlan>(SubscriptionPlan.YEARLY);
 
     const handleContinue = async () => {
         await dispatch(saveOnboardingStatus(true));
@@ -91,9 +91,9 @@ export default function OnboardingStep4() {
                         {subscriptionPlansData.map((plan) => (
                             <TouchableOpacity
                                 key={plan.id}
-                                onPress={() => setSelectedPlan(plan.id as 'monthly' | 'yearly')}
+                                onPress={() => setSelectedPlan(plan.id as SubscriptionPlan)}
                             >
-                                {selectedPlan === plan.id ? (
+                                {selectedPlan === (plan.id as SubscriptionPlan) ? (
                                 <LinearGradient
                                 colors={[
                                   'rgba(16, 30, 23, 1)', 
@@ -111,7 +111,7 @@ export default function OnboardingStep4() {
                                         <View style={styles.subscriptionText}>
                                             <Text style={styles.subscriptionTitle}>{plan.title}</Text>
                                             <Text style={styles.subscriptionPrice}>
-                                                {plan.id === 'yearly' ? plan.description : (
+                                                {plan.id === SubscriptionPlan.YEARLY ? plan.description : (
                                                     <>
                                                         $2.99/
                                                         <Text style={styles.subscriptionPriceLight}>month</Text>
@@ -136,7 +136,7 @@ export default function OnboardingStep4() {
                                         <View style={styles.subscriptionText}>
                                             <Text style={styles.subscriptionTitle}>{plan.title}</Text>
                                             <Text style={styles.subscriptionPrice}>
-                                                {plan.id === 'yearly' ? plan.description : (
+                                                {plan.id === SubscriptionPlan.YEARLY ? plan.description : (
                                                     <>
                                                         $2.99/
                                                         <Text style={styles.subscriptionPriceLight}>month</Text>
@@ -172,7 +172,7 @@ export default function OnboardingStep4() {
                         >
                             <Text style={{
                                 fontSize: wp(15),
-                                color: "#fff",
+                                color: Colors.white,
                                 fontFamily: Fonts.Rubik_700,
                             }}>Try free for 3 days</Text>
                         </TouchableOpacity>
@@ -250,7 +250,7 @@ const styles = StyleSheet.create({
         zIndex: 1000,
     },
     closeButtonText: {
-        color: '#FFFFFF',
+        color: Colors.white,
         fontSize: wp(10),
         fontWeight: 'bold',
     },
@@ -268,7 +268,7 @@ const styles = StyleSheet.create({
         width: wp(180),
         height: wp(180),
         borderWidth: 2,
-        borderColor: '#FFFFFF',
+        borderColor: Colors.white,
         borderStyle: 'dashed',
         borderRadius: wp(10),
     },
@@ -279,7 +279,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: wp(30),
-        color: '#FFFFFF',
+        color: Colors.white,
         fontFamily: Fonts.VisbyCF_800,
         textAlign: 'left',
         marginBottom: hp(8),
@@ -385,32 +385,32 @@ const styles = StyleSheet.create({
         width: wp(8),
         height: wp(8),
         borderRadius: wp(4),
-        backgroundColor: '#FFFFFF',
+        backgroundColor: Colors.white,
     },
     subscriptionText: {
         flex: 1,
     },
     subscriptionTitle: {
         fontSize: wp(16),
-        color: '#FFFFFF',
+        color: Colors.white,
         fontFamily: Fonts.Rubik_600,
         marginBottom: hp(2),
     },
     subscriptionPrice: {
         fontSize: wp(14),
-        color: '#FFFFFF',
+        color: Colors.white,
         fontFamily: Fonts.Rubik_400,
         opacity: 0.8,
     },
     subscriptionPriceLight: {
         fontSize: wp(14),
-        color: '#FFFFFF',
+        color: Colors.white,
         fontFamily: Fonts.Rubik_300,
         opacity: 0.8,
     },
     subscriptionPriceRegular: {
         fontSize: wp(14),
-        color: '#FFFFFF',
+        color: Colors.white,
         fontFamily: Fonts.Rubik_400,
         opacity: 0.8,
     },
@@ -429,7 +429,7 @@ const styles = StyleSheet.create({
     },
     saveBadgeText: {
         fontSize: wp(12),
-        color: '#FFFFFF',
+        color: Colors.white,
         fontFamily: Fonts.Rubik_600,
     },
     footer: {

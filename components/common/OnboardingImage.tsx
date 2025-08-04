@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
-import { getOnboardingImageDimensions } from '../../utils/imageHelper';
-import { hp, wp } from '../../utils/dimensions';
+import { getOnboardingImageDimensions, hp, wp } from '../../utils';
 
 interface OnboardingImageProps {
   imageNumber: number;

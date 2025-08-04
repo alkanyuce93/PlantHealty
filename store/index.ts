@@ -12,4 +12,28 @@ export const store = configureStore({
 });
 
 export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch; 
+export type AppDispatch = typeof store.dispatch;
+
+// Hooks
+export { useAppSelector, useAppDispatch } from './hooks';
+
+// Onboarding Slice
+export { 
+  nextStep, 
+  saveOnboardingStatus, 
+  checkOnboardingStatus 
+} from './slices/onboardingSlice';
+
+// Categories Slice
+export { 
+  fetchCategories, 
+  clearCategories 
+} from './slices/categoriesSlice';
+export type { Category } from './slices/categoriesSlice';
+
+// Questions Slice
+export { 
+  fetchQuestions, 
+  clearQuestions 
+} from './slices/questionsSlice';
+export type { Question } from './slices/questionsSlice'; 

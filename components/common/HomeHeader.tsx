@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { Colors, Fonts } from '@/constants/Colors';
-import { wp } from '@/utils/dimensions';
+import { Colors, Fonts } from '@/constants';
+import { wp } from '@/utils';
 
 const HomeHeader: React.FC = () => {
   const getGreeting = () => {

@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react';
 import { View, StyleSheet, Dimensions, ActivityIndicator } from 'react-native';
-import { useAppSelector, useAppDispatch } from '../store/hooks';
-import { checkOnboardingStatus } from '../store/slices/onboardingSlice';
-import { Colors } from '../constants/Colors';
+import { useAppSelector, useAppDispatch, checkOnboardingStatus } from '../store';
+import { Colors } from '../constants';
+import { OnboardingStep1, OnboardingStep2, OnboardingStep3, OnboardingStep4 } from '@/components';
 
-import OnboardingStep1 from '../components/onboarding/OnboardingStep1';
-import OnboardingStep2 from '../components/onboarding/OnboardingStep2';
-import OnboardingStep3 from '../components/onboarding/OnboardingStep3';
-import OnboardingStep4 from '../components/onboarding/OnboardingStep4';
+
 
 const { width, height } = Dimensions.get('window');
 
@@ -63,11 +60,11 @@ export default function OnboardingScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.white,
   },
   loadingContainer: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.white,
     justifyContent: 'center',
     alignItems: 'center',
   },

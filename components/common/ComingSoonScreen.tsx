@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Text, View } from '@/components/Themed';
-import { Colors, Fonts } from '@/constants/Colors';
-import { wp, hp } from '@/utils/dimensions';
+import { Colors, Fonts } from '@/constants';
+import { wp, hp } from '@/utils';
 
 interface ComingSoonScreenProps {
   title: string;

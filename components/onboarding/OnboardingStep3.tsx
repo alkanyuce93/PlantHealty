@@ -7,13 +7,10 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
-import { useAppDispatch } from '../../store/hooks';
-import { nextStep } from '../../store/slices/onboardingSlice';
-import { Colors, Fonts } from '../../constants/Colors';
-import { hp, wp } from '../../utils/dimensions';
-import Button from '../common/Button';
-import Pagination from '../common/Pagination';
-import OnboardingHeader from '../common/OnboardingHeader';
+import { useAppDispatch, nextStep } from '../../store';
+import { Colors, Fonts } from '../../constants';
+import { hp, wp } from '../../utils';
+import { Button, Pagination, OnboardingHeader } from '../common';
 
 export default function OnboardingStep3() {
   const dispatch = useAppDispatch();

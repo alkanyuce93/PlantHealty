@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, TextInput, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import {  Fonts } from '@/constants/Colors';
-import { wp } from '@/utils/dimensions';
+import { Fonts } from '@/constants';
+import { wp } from '@/utils';
 
 interface SearchBarProps {
   placeholder?: string;

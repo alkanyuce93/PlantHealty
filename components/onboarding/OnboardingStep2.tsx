@@ -3,14 +3,12 @@ import {
   View,
   StyleSheet,
 } from 'react-native';
-import { useAppDispatch } from '../../store/hooks';
-import { nextStep } from '../../store/slices/onboardingSlice';
-import { Colors } from '../../constants/Colors';
-import { hp, wp } from '../../utils/dimensions';
-import Button from '../common/Button';
-import OnboardingImage from '../common/OnboardingImage';
-import Pagination from '../common/Pagination';
-import OnboardingHeader from '../common/OnboardingHeader';
+import { useAppDispatch, nextStep } from '../../store';
+import { Colors } from '../../constants';
+import { hp, wp } from '../../utils';
+import { Button, OnboardingHeader, OnboardingImage, Pagination } from '../common';
+
+
 
 export default function OnboardingStep2() {
   const dispatch = useAppDispatch();

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
-import { Colors, Fonts } from '../../constants/Colors';
-import { hp, wp } from '../../utils/dimensions';
+import { Colors, Fonts } from '../../constants';
+import { hp, wp } from '../../utils';
 
 interface OnboardingHeaderProps {
   title: string;

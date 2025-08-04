@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from 'react-native';
-import { Colors, Fonts } from '@/constants/Colors';
-import { wp, hp } from '@/utils/dimensions';
-import { Category } from '@/store/slices/categoriesSlice';
+import { Colors, Fonts } from '@/constants';
+import { wp, hp } from '@/utils';
+import { Category } from '@/store';
 
 interface PlantCategoriesSectionProps {
   categories: Category[];

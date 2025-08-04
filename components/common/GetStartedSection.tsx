@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { BlurView } from 'expo-blur';
-import { Colors, Fonts } from '@/constants/Colors';
-import { wp, hp } from '@/utils/dimensions';
-import { Question } from '@/store/slices/questionsSlice';
+import { Colors, Fonts } from '@/constants';
+import { wp, hp } from '@/utils';
+import { Question } from '@/store';
 
 interface GetStartedSectionProps {
   questions: Question[];
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     height: hp(164),
     marginRight: wp(11),
     borderRadius: wp(12),
-    backgroundColor: 'white',
+    backgroundColor: Colors.white,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     fontSize: hp(15),
     fontFamily: Fonts.Rubik_400,
     fontWeight: '400',
-    color: '#FFFFFF',
+    color: Colors.white,
     lineHeight: 20,
     letterSpacing: -0.24,
     textAlign: 'left',
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     fontSize: hp(15),
     fontFamily: Fonts.Rubik_500,
     fontWeight: '500',
-    color: '#FFFFFF',
+    color: Colors.white,
     lineHeight: 20,
     letterSpacing: -0.24,
   },

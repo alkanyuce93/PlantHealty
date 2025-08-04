@@ -1,6 +1,6 @@
 import React from 'react';
 import {  StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { hp, wp } from '@/utils/dimensions';
+import { hp, wp } from '@/utils';
 
 interface PremiumBannerProps {
   onPress?: () => void;

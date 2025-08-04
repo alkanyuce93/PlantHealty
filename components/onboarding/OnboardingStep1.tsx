@@ -6,13 +6,11 @@ import {
   Alert,
   ImageBackground,
 } from 'react-native';
-import { useAppDispatch } from '../../store/hooks';
-import { nextStep } from '../../store/slices/onboardingSlice';
-import { Colors, Fonts } from '../../constants/Colors';
-import { hp, wp } from '../../utils/dimensions';
-import Button from '../common/Button';
-import OnboardingImage from '../common/OnboardingImage';
-import OnboardingHeader from '../common/OnboardingHeader';
+import { useAppDispatch, nextStep } from '../../store';
+import { Colors, Fonts } from '../../constants';
+import { Button, OnboardingHeader, OnboardingImage } from '../common';
+import { hp, wp } from '@/utils';
+
 
 export default function OnboardingStep1() {
   const dispatch = useAppDispatch();

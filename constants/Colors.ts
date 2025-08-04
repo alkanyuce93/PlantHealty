@@ -22,6 +22,7 @@ export const Colors = {
   // Pagination Colors
   dotInactive: 'rgba(19, 35, 27, 0.25)',
   dotActive: 'rgba(19, 35, 27, 1)',
+  white: '#FFFFFF',
 };
 
 

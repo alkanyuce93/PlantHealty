@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
 import { StyleSheet, ScrollView, Alert, ImageBackground, ActivityIndicator } from 'react-native';
-import { useAppSelector, useAppDispatch } from '../../store/hooks';
-import { fetchCategories } from '../../store/slices/categoriesSlice';
-import { fetchQuestions } from '../../store/slices/questionsSlice';
+import { useAppSelector, useAppDispatch, fetchCategories, fetchQuestions } from '../../store';
 
 import { View } from '@/components/Themed';
-import { wp } from '@/utils/dimensions';
+import { wp } from '@/utils';
 import HomeHeader from '@/components/common/HomeHeader';
 import SearchBar from '@/components/common/SearchBar';
 import PremiumBanner from '@/components/common/PremiumBanner';

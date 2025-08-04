@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Colors } from '../../constants/Colors';
-import { hp, wp } from '../../utils/dimensions';
+import { Colors } from '../../constants';
+import { hp, wp } from '../../utils';
 
 interface PaginationProps {
   totalSteps: number;

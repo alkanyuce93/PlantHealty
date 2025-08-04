@@ -5,7 +5,7 @@ import { View } from 'react-native';
 
 import { useColorScheme } from '@/components/useColorScheme';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
-import { wp } from '@/utils/dimensions';
+import { wp } from '@/utils';
 import HomeSvgIcon from '@/components/common/HomeSvgIcon';
 import DiagnoseSvgIcon from '@/components/common/DiagnoseSvgIcon';
 import CameraSvgIcon from '@/components/common/CameraSvgIcon';
